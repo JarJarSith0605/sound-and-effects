@@ -2,7 +2,9 @@ using UnityEngine;
 
 public class soawnmanager : MonoBehaviour
 {
-    public GameObject Obstacleprefab;
+    public GameObject[] Obstacleprefab;
+
+    private int index; 
 
     private float startDelay = 2;
 
@@ -23,6 +25,7 @@ public class soawnmanager : MonoBehaviour
 
     void SpawnObstacle()
     {
-         Instantiate (Obstacleprefab, spawnPos, Obstacleprefab.transform.rotation);
+         index = Random.Range(0, Obstacleprefab.Length);
+         Instantiate (Obstacleprefab[index], spawnPos, Obstacleprefab[index].transform.rotation);
     }
 }

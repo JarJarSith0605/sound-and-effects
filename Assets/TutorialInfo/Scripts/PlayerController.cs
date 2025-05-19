@@ -25,7 +25,15 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)  {
-      isOnGround = true; }
+public bool gameover = false;
 
+    private void OnCollisionEnter(Collision collision)  {
+    if (collision.gameObject.CompareTag("Ground")) {
+        isOnGround = true;
+    }   else if (collision.gameObject.CompareTag("obstacle")) {
+        gameover = true;
+        Debug.Log("Game Over!");
+    }
+
+}
 }
